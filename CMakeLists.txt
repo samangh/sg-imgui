@@ -23,27 +23,27 @@ file(COPY ${IMGUI_EXT_DIR}/ DESTINATION ${IMGUI_DIR}
     PATTERN "*.hpp"
     PATTERN "*.c"
     PATTERN "*.cpp"
-    PATTERN "imconfig.h" EXCLUDE
-    PATTERN "imgui_demo.cpp" EXCLUDE)
-
+    PATTERN "imconfig.h" EXCLUDE)
 file(GLOB IMGUI_SRC_FILES
   ${IMGUI_DIR}/*.cpp
   ${IMGUI_DIR}/examples/libs/gl3w/GL/*.c
   ${IMGUI_DIR}/backends/imgui_impl_opengl3.cpp
   ${IMGUI_DIR}/backends/imgui_impl_sdl.cpp)
 
-## Helper source files
+## ImPlot
 ##
+file(GLOB_RECURSE IMPLOT_SRC_FILES
+  ${IMPLOT_DIR}/*.cpp)
+list(REMOVE_ITEM IMPLOT_SRC_FILES ${IMPLOT_DIR}/implot_demo.cpp)
+
+
+## Helper source files
 file(GLOB_RECURSE SRC_FILES
   ${CMAKE_CURRENT_SOURCE_DIR}/src/*.c
   ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cc
-  ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp)
 
-  ${IMPLOT_DIR}/*.cpp)
-
-list(REMOVE_ITEM SRC_FILES ${IMPLOT_DIR}/implot_demo.cpp)
-
-add_library(${TARGET} STATIC ${SRC_FILES} ${IMGUI_SRC_FILES})
+add_library(${TARGET} STATIC ${SRC_FILES} ${IMGUI_SRC_FILES} ${IMPLOT_SRC_FILES})
 
 ##
 ## Includes
