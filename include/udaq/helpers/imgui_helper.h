@@ -1,9 +1,9 @@
 #pragma once
 
+#include "imgui/wrapper.h"
+
 #include <string>
 #include <functional>
-
-#include <imgui-wrapper.h>
 
 namespace udaq::helpers::imgui {
 

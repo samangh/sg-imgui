@@ -4,12 +4,9 @@ set_property(GLOBAL APPEND PROPERTY ${PROJECT_NAME}_TARGETS ${TARGET})
 find_package(SDL2 REQUIRED)
 find_package(OpenGL REQUIRED)
 
-
+set(IMGUI_DIR ${CMAKE_CURRENT_LIST_DIR}/external/imgui)
 set(IMPLOT_DIR ${CMAKE_CURRENT_LIST_DIR}/external/implot)
 set(IMGUI_FILE_BROWSER_DIR ${CMAKE_CURRENT_LIST_DIR}/external/imgui-filebrowser)
-
-set(IMGUI_EXT_DIR ${CMAKE_CURRENT_LIST_DIR}/external/imgui)
-set(IMGUI_DIR ${CMAKE_CURRENT_LIST_DIR}/src_temp)
 
 ##
 ## Source files
@@ -17,13 +14,6 @@ set(IMGUI_DIR ${CMAKE_CURRENT_LIST_DIR}/src_temp)
 
 ## ImGui source files
 ##
-file(COPY ${IMGUI_EXT_DIR}/ DESTINATION ${IMGUI_DIR}
-  FILES_MATCHING
-    PATTERN "*.h"
-    PATTERN "*.hpp"
-    PATTERN "*.c"
-    PATTERN "*.cpp"
-    PATTERN "imconfig.h" EXCLUDE)
 file(GLOB IMGUI_SRC_FILES
   ${IMGUI_DIR}/*.cpp
   ${IMGUI_DIR}/examples/libs/gl3w/GL/*.c
@@ -35,7 +25,6 @@ file(GLOB IMGUI_SRC_FILES
 file(GLOB_RECURSE IMPLOT_SRC_FILES
   ${IMPLOT_DIR}/*.cpp)
 list(REMOVE_ITEM IMPLOT_SRC_FILES ${IMPLOT_DIR}/implot_demo.cpp)
-
 
 ## Helper source files
 file(GLOB_RECURSE SRC_FILES
@@ -49,6 +38,9 @@ add_library(${TARGET} STATIC ${SRC_FILES} ${IMGUI_SRC_FILES} ${IMPLOT_SRC_FILES}
 ## Includes
 ##
 
+# Use our version of imconfig.h
+target_compile_definitions(${TARGET} PUBLIC IMGUI_DISABLE_INCLUDE_IMCONFIG_H)
+target_compile_definitions(${TARGET} PUBLIC IMGUI_USER_CONFIG="udaq/helpers/imgui/udaq_imconfig.h")
 
 target_include_directories(${TARGET}
   INTERFACE
