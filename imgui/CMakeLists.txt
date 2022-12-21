@@ -2,7 +2,7 @@ set(TARGET "imgui")
 set_property(GLOBAL APPEND PROPERTY ${PROJECT_NAME}_TARGETS ${TARGET})
 
 set(IMGUI_EXT_DIR ${CMAKE_CURRENT_LIST_DIR}/../external/imgui)
-set(IMGUI_DIR ${CMAKE_CURRENT_LIST_DIR}/src)
+set(IMGUI_DIR ${CMAKE_CURRENT_LIST_DIR}/src_temp)
 
 find_package(SDL2 REQUIRED)
 find_package(OpenGL REQUIRED)
