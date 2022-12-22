@@ -16,13 +16,12 @@ set(IMGUI_FILE_BROWSER_DIR ${CMAKE_CURRENT_LIST_DIR}/external/imgui-filebrowser)
 ##
 file(GLOB IMGUI_SRC_FILES
   ${IMGUI_DIR}/*.cpp
-  ${IMGUI_DIR}/examples/libs/gl3w/GL/*.c
   ${IMGUI_DIR}/backends/imgui_impl_opengl3.cpp
   ${IMGUI_DIR}/backends/imgui_impl_sdl.cpp)
 
 ## ImPlot
 ##
-file(GLOB_RECURSE IMPLOT_SRC_FILES
+file(GLOB IMPLOT_SRC_FILES
   ${IMPLOT_DIR}/*.cpp)
 list(REMOVE_ITEM IMPLOT_SRC_FILES ${IMPLOT_DIR}/implot_demo.cpp)
 
@@ -49,7 +48,6 @@ target_include_directories(${TARGET}
     $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/include>
 
     $<BUILD_INTERFACE:${IMGUI_DIR}>
-    $<BUILD_INTERFACE:${IMGUI_DIR}/examples/libs/gl3w>
 
     $<BUILD_INTERFACE:${IMPLOT_DIR}>
     $<BUILD_INTERFACE:${IMGUI_FILE_BROWSER_DIR}>
