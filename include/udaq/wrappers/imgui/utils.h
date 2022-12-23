@@ -1,11 +1,11 @@
 #pragma once
 
-#include "imgui/wrapper.h"
+#include <imgui.h>
 
 #include <string>
 #include <functional>
 
-namespace udaq::helpers::imgui {
+namespace udaq::wrappers::imgui {
 
 /* Create a version of ImGui::InputText for std::string */
 bool InputText(const char* label, std::string& str, ImGuiInputTextFlags flags=0);

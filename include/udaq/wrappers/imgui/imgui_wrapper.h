@@ -11,3 +11,5 @@
 #else
 #include <SDL_opengl.h>
 #endif
+
+#include "utils.h"

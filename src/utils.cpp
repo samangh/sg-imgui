@@ -1,7 +1,7 @@
-#include "udaq/helpers/imgui_helper.h"
+#include "udaq/wrappers/imgui/imgui_wrapper.h"
 #include <imgui_internal.h>
 
-namespace  udaq::helpers::imgui{
+namespace  udaq::wrappers::imgui{
 
 int InputTextCallback(ImGuiInputTextCallbackData* data)
 {

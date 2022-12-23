@@ -39,7 +39,7 @@ add_library(${TARGET} STATIC ${SRC_FILES} ${IMGUI_SRC_FILES} ${IMPLOT_SRC_FILES}
 
 # Use our version of imconfig.h
 target_compile_definitions(${TARGET} PUBLIC IMGUI_DISABLE_INCLUDE_IMCONFIG_H)
-target_compile_definitions(${TARGET} PUBLIC IMGUI_USER_CONFIG="udaq/helpers/imgui/udaq_imconfig.h")
+target_compile_definitions(${TARGET} PUBLIC IMGUI_USER_CONFIG="udaq/wrappers/imgui/config.h")
 
 target_include_directories(${TARGET}
   INTERFACE
