@@ -1,6 +1,7 @@
 #pragma once
 
 #include <imgui.h>
+#include "karla-font.h"
 
 #include <string>
 #include <functional>
@@ -15,5 +16,8 @@ bool InputUInt32(const char* label, uint32_t& v, ImGuiInputTextFlags flags =0);
 
 /* Disables the ImGUI items defined in func if visibile is false */
 void disable_item(bool visible, std::function<void(void)> func);
+
+/* Sets the ImGUI font to Karla */
+void set_karla_font();
 
 }

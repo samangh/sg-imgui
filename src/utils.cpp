@@ -30,7 +30,6 @@ bool InputUInt32(const char *label, uint32_t& v, ImGuiInputTextFlags flags)
 
 void disable_item(bool visible, std::function<void ()> func)
 {
-
         if (visible)
         {
             ImGui::PushItemFlag(ImGuiItemFlags_Disabled, true);
@@ -41,6 +40,12 @@ void disable_item(bool visible, std::function<void ()> func)
         }
         else
             func();
+}
+
+void set_karla_font(){
+    ImGui::GetIO().Fonts->AddFontFromMemoryCompressedTTF(
+                Karla_compressed_data, karla_compressed_size, 14);
+    ImGui::GetIO().Fonts->Build();
 }
 
 }
