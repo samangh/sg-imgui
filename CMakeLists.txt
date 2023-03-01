@@ -21,7 +21,7 @@ function(imgui_get_src_files)
   file(GLOB IMGUI_SRC_FILES
     ${IMGUI_DIR}/*.cpp
     ${IMGUI_DIR}/backends/imgui_impl_opengl3.cpp
-    ${IMGUI_DIR}/backends/imgui_impl_sdl.cpp)
+    ${IMGUI_DIR}/backends/imgui_impl_sdl2.cpp)
 
   ## ImPlot
   ##
