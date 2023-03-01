@@ -45,7 +45,6 @@ void disable_item(bool visible, std::function<void ()> func)
 void set_karla_font(){
     ImGui::GetIO().Fonts->AddFontFromMemoryCompressedTTF(
                 Karla_compressed_data, karla_compressed_size, 14);
-    ImGui::GetIO().Fonts->Build();
 }
 
 }
