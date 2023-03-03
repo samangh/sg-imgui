@@ -49,4 +49,42 @@ void set_karla_font(){
                 Karla_compressed_data, karla_compressed_size, 14);
 }
 
+void centre_next_control_hor(const ImVec2 &vec, const int no_of_items)
+{
+    // obtain width of window
+     float width = ImGui::GetWindowSize().x;
+
+     // figure out where we need to move the controls to
+     float centre_position_for_button = (width - vec.x - ImGui::GetStyle().ItemSpacing.x * (no_of_items-1)) / 2;
+
+     // tell Dear ImGui to render the controls at the current y pos, but with the new x pos
+     ImGui::SetCursorPosX(centre_position_for_button);
+}
+
+DialogResult create_modal_popup(const char *imgui_id, const std::string &message, const int flags)
+{
+    DialogResult result = DialogResult::NoResult;
+    if (ImGui::BeginPopupModal(imgui_id, NULL, flags))
+    {
+        ImGui::Spacing();
+        ImGui::Text("%s", message.c_str());
+        ImGui::Spacing();
+        ImGui::Separator();
+        ImGui::Spacing();
+
+        auto size = ImVec2(80, 0);
+        udaq::wrappers::imgui::centre_next_control_hor(size);
+
+        if (ImGui::Button("OK", size))
+        {
+            result = DialogResult::OK;
+            ImGui::CloseCurrentPopup();
+        }
+
+        ImGui::EndPopup();
+    }
+
+    return result;
+}
+
 }
