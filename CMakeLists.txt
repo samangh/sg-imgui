@@ -27,7 +27,7 @@ function(imgui_get_src_files)
   ##
   file(GLOB IMPLOT_SRC_FILES
     ${IMPLOT_DIR}/*.cpp)
-  list(REMOVE_ITEM IMPLOT_SRC_FILES ${IMPLOT_DIR}/implot_demo.cpp)
+  #list(REMOVE_ITEM IMPLOT_SRC_FILES ${IMPLOT_DIR}/implot_demo.cpp)
 
   ## Helper source files
   file(GLOB_RECURSE IMGUI_WRAPPER_OWN_SRC_FILES
