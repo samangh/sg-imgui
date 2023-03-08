@@ -45,4 +45,7 @@ DialogResult create_modal_popup(const char* imgui_id, const std::string& message
                                                  |ImGuiWindowFlags_NoSavedSettings
                                                  |ImGuiWindowFlags_NoMove);
 
+/* Centre the new window both orizontally and vertically */
+void centre_next_window();
+
 }
