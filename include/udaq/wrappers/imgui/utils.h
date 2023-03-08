@@ -48,4 +48,5 @@ DialogResult create_modal_popup(const char* imgui_id, const std::string& message
 /* Centre the new window both orizontally and vertically */
 void centre_next_window();
 
+ImVec2 get_button_size(const char * msg);
 }

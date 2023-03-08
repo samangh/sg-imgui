@@ -52,7 +52,7 @@ void set_karla_font(){
 void centre_next_control_hor(const ImVec2 &vec, const int no_of_items)
 {
     // obtain width of window
-     float width = ImGui::GetWindowSize().x;
+    float width = ImGui::GetWindowSize().x;
 
      // figure out where we need to move the controls to
      float centre_position_for_button = (width - vec.x - ImGui::GetStyle().ItemSpacing.x * (no_of_items-1)) / 2;
@@ -92,6 +92,18 @@ void centre_next_window()
     auto pos = ImVec2(ImGui::GetIO().DisplaySize.x * 0.5f, ImGui::GetIO().DisplaySize.y * 0.5f);
     ImGui::SetNextWindowPos(pos, ImGuiCond_Always, ImVec2(0.5f,0.5f));
 
+}
+
+/* Calcultes the size of a button with the given text */
+ImVec2 get_button_size(const char *msg)
+{
+    // See: https://github.com/ocornut/imgui/issues/3714#issuecomment-759319268
+    auto style = ImGui::GetStyle();
+    auto textSize= ImGui::CalcTextSize(msg);
+
+    auto x= textSize.x + style.FramePadding.x * 2.0f;
+    auto y= textSize.y + style.FramePadding.y * 2.0f;
+    return ImVec2(x,y);
 }
 
 }
