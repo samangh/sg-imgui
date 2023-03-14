@@ -87,10 +87,10 @@ DialogResult create_modal_popup(const char *imgui_id, const std::string &message
     return result;
 }
 
-void centre_next_window()
+void centre_next_window(ImGuiCond cond)
 {
     auto pos = ImVec2(ImGui::GetIO().DisplaySize.x * 0.5f, ImGui::GetIO().DisplaySize.y * 0.5f);
-    ImGui::SetNextWindowPos(pos, ImGuiCond_Always, ImVec2(0.5f,0.5f));
+    ImGui::SetNextWindowPos(pos, cond, ImVec2(0.5f,0.5f));
 
 }
 
