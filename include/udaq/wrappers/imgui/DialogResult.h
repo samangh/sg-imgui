@@ -1,6 +1,6 @@
 #pragma once
 
-namespace  udaq::wrappers::imgui{
+namespace  sg::imgui{
 
 enum class DialogResult {
     NoResult,

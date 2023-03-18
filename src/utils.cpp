@@ -3,7 +3,7 @@
 
 #include <imgui_internal.h>
 
-namespace  udaq::wrappers::imgui{
+namespace  sg::imgui{
 
 int InputTextCallback(ImGuiInputTextCallbackData* data)
 {
@@ -73,7 +73,7 @@ DialogResult create_modal_popup(const char *imgui_id, const std::string &message
         ImGui::Spacing();
 
         auto size = ImVec2(80, 0);
-        udaq::wrappers::imgui::centre_next_control_hor(size);
+        centre_next_control_hor(size);
 
         if (ImGui::Button("OK", size))
         {

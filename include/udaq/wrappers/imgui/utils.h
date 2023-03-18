@@ -6,7 +6,7 @@
 #include <string>
 #include <functional>
 
-namespace udaq::wrappers::imgui {
+namespace sg::imgui {
 
 /* Create a version of ImGui::InputText for std::string */
 bool InputText(const char* label, std::string& str, ImGuiInputTextFlags flags=0);
