@@ -44,7 +44,7 @@ add_library(${TARGET} STATIC ${SRC_FILES})
 
 # Use our version of imconfig.h
 target_compile_definitions(${TARGET} PUBLIC IMGUI_DISABLE_INCLUDE_IMCONFIG_H)
-target_compile_definitions(${TARGET} PUBLIC IMGUI_USER_CONFIG="udaq/wrappers/imgui/config.h")
+target_compile_definitions(${TARGET} PUBLIC IMGUI_USER_CONFIG="sg/imgui/config.h")
 
 target_include_directories(${TARGET}
   INTERFACE
@@ -69,12 +69,12 @@ if(TARGET SDL2::SDL2main)
       set(USE_STATIC_SDL ON)
     endif()
   endif()
-  target_link_libraries(${TARGET} PUBLIC
+  target_link_libraries(${TARGET} PRIVATE
     $<IF:$<BOOL:${USE_STATIC_SDL}>,SDL2::SDL2-static,SDL2::SDL2>
     SDL2::SDL2main)
 else()
-  target_include_directories(${TARGET} PUBLIC ${SDL2_INCLUDE_DIRS})
-  target_link_libraries(${TARGET} PUBLIC ${SDL2_LIBRARIES})
+  target_include_directories(${TARGET} PRIVATE ${SDL2_INCLUDE_DIRS})
+  target_link_libraries(${TARGET} PRIVATE ${SDL2_LIBRARIES})
 endif()
 
 ##
@@ -82,7 +82,7 @@ endif()
 ##
 
 target_link_libraries(${TARGET}
-  PUBLIC
+  PRIVATE
   OpenGL::GL
   "$<$<BOOL:${APPLE}>:-framework CoreFoundation>"
   $<$<AND:$<BOOL:${UNIX}>,$<NOT:$<BOOL:${APPLE}>>>:${CMAKE_DL_LIBS}>)

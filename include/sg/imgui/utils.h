@@ -1,7 +1,8 @@
 #pragma once
 
-#include <imgui.h>
 #include "DialogResult.h"
+
+#include <imgui.h>
 
 #include <string>
 #include <functional>
