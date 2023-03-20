@@ -1,4 +1,4 @@
-set(TARGET "imgui")
+set(TARGET "sg_imgui")
 set_property(GLOBAL APPEND PROPERTY ${PROJECT_NAME}_TARGETS ${TARGET})
 
 find_package(SDL2 REQUIRED)
