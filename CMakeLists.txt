@@ -1,4 +1,6 @@
-set(TARGET "sg_imgui")
+set(SG_TARGET_NANE "imgui")
+set(TARGET "sg_${SG_TARGET_NANE}")
+
 set_property(GLOBAL APPEND PROPERTY ${PROJECT_NAME}_TARGETS ${TARGET})
 
 find_package(SDL2 REQUIRED)
@@ -37,6 +39,7 @@ file(GLOB SRC_FILES
 ## ImGui variables are correctly shared across the DLL boundary.
 ##
 add_library(${TARGET} STATIC ${SRC_FILES})
+add_library(SG::${SG_TARGET_NANE} ALIAS ${TARGET})
 
 ##
 ## Includes
