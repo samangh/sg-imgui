@@ -33,15 +33,14 @@ bool InputUInt32(const char *label, uint32_t& v, ImGuiInputTextFlags flags)
 void disable_item(bool visible, std::function<void ()> func)
 {
         if (visible)
-        {
+            func();
+        else {
             ImGui::PushItemFlag(ImGuiItemFlags_Disabled, true);
             ImGui::PushStyleVar(ImGuiStyleVar_Alpha, ImGui::GetStyle().Alpha * 0.5f);
             func();
             ImGui::PopItemFlag();
             ImGui::PopStyleVar();
-        }
-        else
-            func();
+        };
 }
 
 void set_karla_font(){
