@@ -3,12 +3,13 @@ set(TARGET "sg_${SG_TARGET_NANE}")
 
 set_property(GLOBAL APPEND PROPERTY ${PROJECT_NAME}_TARGETS ${TARGET})
 
-find_package(SDL2 REQUIRED)
-find_package(OpenGL REQUIRED)
-
 set(IMGUI_DIR ${CMAKE_CURRENT_SOURCE_DIR}/external/imgui)
 set(IMPLOT_DIR ${CMAKE_CURRENT_SOURCE_DIR}/external/implot)
-set(IMGUI_FILE_BROWSER_DIR ${CMAKE_CURRENT_SOURCE_DIR}/external/imgui-filebrowser)
+set(PORTABLE_FILE_DIALOGS_DIR ${CMAKE_CURRENT_SOURCE_DIR}/external/portable-file-dialogs)
+
+find_package(SDL2 REQUIRED)
+find_package(OpenGL REQUIRED)
+add_subdirectory(${PORTABLE_FILE_DIALOGS_DIR})
 
 ##
 ## Source files

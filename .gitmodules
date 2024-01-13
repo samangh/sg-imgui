@@ -6,7 +6,7 @@
 	path = external/implot
 	url = https://github.com/epezent/implot.git
 	branch = master
-[submodule "external/imgui-filebrowser"]
-	path = external/imgui-filebrowser
-	url = https://github.com/AirGuanZ/imgui-filebrowser.git
-	branch = master
+[submodule "external/portable-file-dialogs"]
+	path = external/portable-file-dialogs
+	url = git@github.com:samangh/portable-file-dialogs.git
+	branch = main
