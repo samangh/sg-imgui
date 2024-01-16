@@ -1,12 +1,7 @@
 #pragma once
 
-namespace  sg::imgui{
+namespace sg::imgui {
 
-enum class DialogResult {
-    NoResult,
-    OK
-};
+enum class DialogResult { NoResult, OK };
 
 }
-
-
