@@ -87,6 +87,8 @@ endif()
 
 target_link_libraries(${TARGET}
   PRIVATE
-  OpenGL::GL
-  "$<$<BOOL:${APPLE}>:-framework CoreFoundation>"
-  $<$<AND:$<BOOL:${UNIX}>,$<NOT:$<BOOL:${APPLE}>>>:${CMAKE_DL_LIBS}>)
+    OpenGL::GL
+    "$<$<BOOL:${APPLE}>:-framework CoreFoundation>"
+    $<$<AND:$<BOOL:${UNIX}>,$<NOT:$<BOOL:${APPLE}>>>:${CMAKE_DL_LIBS}>
+  PUBLIC
+    portable_file_dialogs)
