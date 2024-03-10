@@ -4,6 +4,7 @@
 
 #include <imgui.h>
 
+#include <cstdint>
 #include <functional>
 #include <string>
 
